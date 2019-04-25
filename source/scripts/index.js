@@ -1,0 +1,9 @@
+// 外部ライブラリー
+import './lib/matchall';
+// ページコンテンツ
+import './buttons/copy';
+import './buttons/download';
+import './buttons/upload';
+import './buttons/convert';
+// スタイル
+import '../styles/index.scss';

@@ -1,0 +1,45 @@
+{
+  "name": "event-calendar",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel serve source/markup/index.pug",
+    "build": "parcel build source/markup/index.pug --public-url ./",
+    "prebuild": "rm -rf dist",
+    "postbuild": "rsync -azvP dist/ git:/var/www/git.yoshidagumi.local/html/event-calendar-csv",
+    "backup": "echo '';echo $(pwd)'をバックアップする';echo '';NOW=$(date +%Y-%m-%d_%H%M%S);PRJT=`basename $(pwd)`;if [ -e node_modules ]||[ -e .gitignore ];then cd ..;bsdtar cjv --exclude ${PRJT}'/node_modules' --exclude ${PRJT}'/.cache' --exclude ${PRJT}'/dist' -f $PRJT-$NOW.tar.bz2 $PRJT;find . -maxdepth 1 -name ${PRJT}'*' -type f -mtime +1 -delete;cd $PRJT;echo '';ls -lh ..|grep $PRJT-$NOW;else echo 'gitリポジトリではなさそう';fi"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "clipboard": "^2.0.4",
+    "jquery": "^3.3.1",
+    "js-file-download": "^0.4.5",
+    "moment": ">= 2",
+    "moment-range": "^4.0.2",
+    "papaparse": "^4.6.3",
+    "popper.js": "^1.14.7",
+    "string.prototype.matchall": "^3.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/polyfill": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.7.1",
+    "babel-loader": "^8.0.5",
+    "core-js": "^3.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "jest": "^24.7.1",
+    "jest-html-reporter": "^2.5.0",
+    "parcel-bundler": "^1.12.3",
+    "parcel-plugin-eslint": "^1.0.7",
+    "pug": "^2.0.3",
+    "regenerator-runtime": "^0.13.2",
+    "sass": "^1.17.3"
+  }
+}

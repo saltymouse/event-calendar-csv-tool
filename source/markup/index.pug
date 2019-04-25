@@ -1,0 +1,41 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title CSV to MT
+  body
+    main.container-fluid
+      
+      .jumbotron.jumbotron-fluid.text-center.mb-1.py-3
+        h1 CSV 💥 👉 MT
+        p.lead CSVファイルをアップロードするかCSVのテキストを入力欄に貼り付ける
+        p.badge.badge-primary 注意：列名から始まる必要ある
+        div
+          input#upload-file(type='file', accept='text/csv')
+          label.btn.btn-warning(for='upload-file') CSVファイルを選択🐔
+
+      .row.flex-grow-1
+        
+        .col-md-5.d-flex.flex-column.mb-2
+          header.text-center
+            label.display-4.text-center(for='svg') CSV
+          textarea#svg.form-control.flex-grow-1(rows='10', placeholder='SVG内容を入力・貼り付ける')
+
+        .col-md-2.d-flex.align-items-center.justify-content-center
+          button#convert.btn.btn-danger.form-control 変換 🚀
+
+        .col-md-5.d-flex.flex-column.mb-2
+          header.text-center
+            label.display-4.text-center(for='json') MT
+          .copybox.d-flex.flex-column.flex-grow-1
+            button.copy.btn.btn-secondary(title="コピー",data-clipboard-target="#json") 📑
+            button.download.btn.btn-secondary(title="ダウンロード") 💾
+            textarea#json.form-control.flex-grow-1(rows='10', placeholder='JSON結果', readonly='')
+          .copybox.d-flex.flex-column.flex-grow-1
+            button.copy.btn.btn-secondary(title="コピー",data-clipboard-target="#csv") 📑
+            button.download.btn.btn-secondary(title="ダウンロード") 💾
+            textarea#csv.form-control.flex-grow-1(rows='10', placeholder='CSV結果', readonly='')
+
+    script(src='../scripts/index.js')
