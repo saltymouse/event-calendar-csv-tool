@@ -10,6 +10,8 @@
     "build": "parcel build source/markup/index.pug --public-url ./",
     "prebuild": "rm -rf dist",
     "postbuild": "echo 'done'",
+    "predeploy": "rm -rf dist && parcel build source/markup/index.pug --public-url https://saltymouse.github.io/event-calendar-csv-tool/",
+    "deploy": "gh-pages -d dist",
     "backup": "echo '';echo $(pwd)'をバックアップする';echo '';NOW=$(date +%Y-%m-%d_%H%M%S);PRJT=`basename $(pwd)`;if [ -e node_modules ]||[ -e .gitignore ];then cd ..;bsdtar cjv --exclude ${PRJT}'/node_modules' --exclude ${PRJT}'/.cache' --exclude ${PRJT}'/dist' -f $PRJT-$NOW.tar.bz2 $PRJT;find . -maxdepth 1 -name ${PRJT}'*' -type f -mtime +1 -delete;cd $PRJT;echo '';ls -lh ..|grep $PRJT-$NOW;else echo 'gitリポジトリではなさそう';fi"
   },
   "dependencies": {
@@ -35,6 +37,7 @@
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
+    "gh-pages": "^2.1.1",
     "jest": "^24.7.1",
     "jest-html-reporter": "^2.5.0",
     "parcel-bundler": "^1.12.3",
