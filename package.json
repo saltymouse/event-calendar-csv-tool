@@ -1,14 +1,15 @@
 {
-  "name": "event-calendar",
+  "name": "event-calendar-csv-tool",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "homepage": "https://saltymouse.github.io/event-calendar-csv-tool",
   "scripts": {
     "test": "jest",
     "start": "parcel serve source/markup/index.pug",
     "build": "parcel build source/markup/index.pug --public-url ./",
     "prebuild": "rm -rf dist",
-    "postbuild": "rsync -azvP dist/ git:/var/www/git.yoshidagumi.local/html/event-calendar-csv",
+    "postbuild": "echo 'done'",
     "backup": "echo '';echo $(pwd)'をバックアップする';echo '';NOW=$(date +%Y-%m-%d_%H%M%S);PRJT=`basename $(pwd)`;if [ -e node_modules ]||[ -e .gitignore ];then cd ..;bsdtar cjv --exclude ${PRJT}'/node_modules' --exclude ${PRJT}'/.cache' --exclude ${PRJT}'/dist' -f $PRJT-$NOW.tar.bz2 $PRJT;find . -maxdepth 1 -name ${PRJT}'*' -type f -mtime +1 -delete;cd $PRJT;echo '';ls -lh ..|grep $PRJT-$NOW;else echo 'gitリポジトリではなさそう';fi"
   },
   "dependencies": {
