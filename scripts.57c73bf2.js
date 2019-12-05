@@ -182,4 +182,4 @@ Array.prototype.flat||(Array.prototype.flat=function(){var r=arguments[0];return
 },{"../parseContent":"AQiF","../displayResults":"qbfT"}],"K1i0":[function(require,module,exports) {
 "use strict";require("./lib/matchall"),require("./buttons/copy"),require("./buttons/download"),require("./buttons/upload"),require("./buttons/convert"),require("../styles/index.scss");
 },{"./lib/matchall":"ajWk","./buttons/copy":"BeTM","./buttons/download":"sqJa","./buttons/upload":"yclJ","./buttons/convert":"Ohex","../styles/index.scss":"Zcgp"}]},{},["K1i0"], null)
-//# sourceMappingURL=scripts.57c73bf2.js.map
+//# sourceMappingURL=https://saltymouse.github.io/event-calendar-csv-tool/scripts.57c73bf2.js.map
