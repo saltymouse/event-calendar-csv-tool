@@ -21,7 +21,7 @@
     "js-file-download": "^0.4.5",
     "moment": ">= 2",
     "moment-range": "^4.0.2",
-    "papaparse": "^4.6.3",
+    "papaparse": "^5.3.0",
     "popper.js": "^1.14.7",
     "string.prototype.matchall": "^3.0.1"
   },
